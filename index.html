@@ -1,14 +1,94 @@
-<!DOCTYPE html><html><head>
-    <script src="p5.js"></script>
-    <script src="p5.dom.min.js"></script>
-    <script src="p5.sound.min.js"></script>
-<script src="./p5.play.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <meta charset="utf-8">
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>M4st3rH4ck3r Sub Page</title>
+        <style>
+            h1 {
+                color: blue;
+                text-align: center;
+            }
+            
+            .page {
+                opacity: 0;
+                transition: opacity 0.3s;
+            }
+            
+            .page.show {
+                opacity: 1;
 
-  </head>
-  <body>
-      <script src="sketch.js"></script>
+                }
+            button{
+       
+                border-color:rgb(135, 0, 135);
+                border-radius:20px;
+                width:140px;
+                height:49px;
+                background-color:#1F8FFF;
+                transition-duration:1.5s;
   
+            }
+            button:hover{
+                background-color:rgb(13, 255, 255);
+                transform:rotate(360deg);
+            }
+            .buttons{
+                display:flex;
+                justify-content:center;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>M4st3rH4ck3r Sub Page</h1>
+        
+        <hr width="551">
+        <div class="buttons"><button type="button" onclick="switchPage('page1')">About</button>
 
-</body></html>
+<button type="button" onclick="switchPage('page2')">Projects</button>
+
+<button type="button" onclick="switchPage('page3')">How to sub</button>
+
+<button type="button" onclick="switchPage('page4')">About GMA</button>
+    
+</div>
+
+
+        <div class="page page1 show">
+            <h1>This is page 1</h1>
+        </div>
+        
+        <div class="page page2">
+            <h1>This is page 2</h1>
+        </div>
+        
+        <div class="page page3">
+            <h1>This is page 3</h1>
+        </div>
+        
+        <div class="page page4">
+            <h1>This is page 4</h1>
+        </div>
+        <script type>
+        //page turner
+        {
+                       let currentPage = 'page1';
+                const $ = x => document.querySelector(x);
+                const $$ = x => document.querySelectorAll(x);
+                
+                $$('.page:not(.show)').forEach(x => x.style.display = 'none');
+                
+                function switchPage(page) {
+                    $('.' + currentPage).classList.remove('show');
+                    setTimeout(() => {
+                        $('.' + currentPage).style.display = 'none';
+                        $('.' + page).style.display = 'block';
+                        setTimeout(() => {
+                            $('.' + page).classList.add('show');
+                            currentPage = page;
+                        }, 50);
+                    }, 300);
+                }   
+        }    
+       </script>
+    </body>
+</html>
