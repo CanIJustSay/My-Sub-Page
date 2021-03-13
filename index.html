@@ -1,9 +1,26 @@
 <!DOCTYPE html>
 <html>
     <head>
+
         <meta charset="utf-8">
         <title>M4st3rH4ck3r Sub Page</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <style>
+        
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+::selection{color:aqua;}
             h1 {
                 color: blue;
                 text-align: center;
@@ -11,7 +28,9 @@
             
             .page {
                 opacity: 0;
-                transition: opacity 0.3s;
+
+                transition-duration: 0.3s;
+                
             }
             
             .page.show {
@@ -20,45 +39,75 @@
                 }
             button{
        
-                border-color:rgb(135, 0, 135);
+                border-color:rgb(0, 0, 0);
                 border-radius:20px;
-                width:140px;
+                width:100px;
                 height:49px;
-                background-color:#1F8FFF;
+                background-color:rgba(138, 138, 138);
                 transition-duration:1.5s;
   
             }
             button:hover{
                 background-color:rgb(13, 255, 255);
-                transform:rotate(360deg);
+               animation: shake 0.7s;
+               animation-iteration-count:infinite;
+               transform: rotateZ(20deg);
             }
             .buttons{
+                background-color:rgba(209, 209, 209);
+                border-radius:50px;
                 display:flex;
-                justify-content:center;
+                justify-content:space-evenly;
+                margin-left:55px;
+                margin-right:55px;
+                outline:none;
+            
             }
+
+            
+p{
+    font-size:30px;
+}
+::-webkit-scrollbar {
+  width: 13px;
+}
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+
+}
+::-webkit-scrollbar-thumb {
+  background: lightgrey; 
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+background:grey;
+}
         </style>
     </head>
     <body>
         <h1>M4st3rH4ck3r Sub Page</h1>
         
         <hr width="551">
-        <div class="buttons"><button type="button" onclick="switchPage('page1')">About</button>
+        <div id="main"class="buttons"><button type="button" onclick="switchPage('page1')">About</button>
 
-<button type="button" onclick="switchPage('page2')">Projects</button>
+<button id="main" type="button" onclick="switchPage('page2')">Projects</button>
 
-<button type="button" onclick="switchPage('page3')">How to sub</button>
+<button id="main" type="button" onclick="switchPage('page3')">How to sub</button>
 
-<button type="button" onclick="switchPage('page4')">About GMA</button>
-    
+<button id="main"type="button" onclick="switchPage('page4')">The KA Tribune</button>
+
 </div>
 
 
         <div class="page page1 show">
-            <h1>This is page 1</h1>
+            <h1>About Me</h1>
+            <p> Hello! I am M4st3rH4ck3r, or Wyatt. I love to code (if it isn't obvious) and love to read and listen to music. Often times, I will start with a project, but never get to finishing it, so, I created my Sub Page to keep me motivated to finish all of the unfinished. I wish to be a Software Engineer, so I am learning as many languages as possible such as JS, HTML, CSS, JSX with React, Python and more. If you need help, please ask!</p>
         </div>
         
         <div class="page page2">
             <h1>This is page 2</h1>
+
         </div>
         
         <div class="page page3">
@@ -75,7 +124,7 @@
                 const $ = x => document.querySelector(x);
                 const $$ = x => document.querySelectorAll(x);
                 
-                $$('.page:not(.show)').forEach(x => x.style.display = 'none');
+                $$('.page:not(.show)').forEach(x => x.style                        .display = 'none');
                 
                 function switchPage(page) {
                     $('.' + currentPage).classList.remove('show');
@@ -88,7 +137,55 @@
                         }, 50);
                     }, 300);
                 }   
-        }    
+        }
+        //experimentation
+        /*
+        $("page page 1").ready(function(){
+            $("h1").click(function(){
+                $(this).hide("slow");
+            });
+            $("p").click(function(){
+                $(this).fadeOut("slow");
+            });
+            
+        });
+        
+
+            
+        });*/
+        /*
+        $(document).ready(function(){
+
+    $("p").slideUp("slow");
+    
+$("h1").click(function(){
+    $("p").slideDown("slow");
+});
+        });
+*/
+/*
+$(document).ready(function(){
+  $("h1").click(function(){
+    $(".box").animate({
+        left: '100px',
+        height:'150px',
+        width:'150px',
+        opacity:'0.2'
+    });
+  });
+});
+*/
+/*
+$(document).ready(function(){
+  $("h1").click(function(){
+    var div = $(".box");
+    div.animate({height: '300px', opacity: '0.4'}, "slow");
+    div.animate({width: '300px', opacity: '0.8'}, "slow");
+    div.animate({height: '100px', opacity: '0.4'}, "slow");
+    div.animate({width: '100px', opacity: '0.8'}, "slow");
+  });
+});
+*/
        </script>
     </body>
 </html>
